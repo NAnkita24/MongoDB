@@ -22,7 +22,11 @@ db.products.find({'price':{$gt:120}}).limit(3).sort({'price':-1})
 
 db.products.find({$and :[{'price':{$eq:280}},{'name':'OPPOF19'}]})
 db.products.find({$or :[{'price':{$eq:280}},{'name':'OPPOF19'}]})
-db.products.find({[{'price':{$not:{$eq:100}}}]}).limit(3)
+db.products.find({{'price':{$not:{$eq:100}}}}).limit(3)
+db.products.find({'price':{$ne:100}}).limit(3);
 
+db.moves.find({$expr:{$gt:[{$add:['$power','$pp']},'$accuracy']}})
 
-
+db.products.find({price:{$exists:true}}).count()
+db.products.find({price:{$exists:false}}).count()
+db.products.find({price:{$type:'number'}}).count()
