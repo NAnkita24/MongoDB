@@ -30,3 +30,6 @@ db.moves.find({$expr:{$gt:[{$add:['$power','$pp']},'$accuracy']}})
 db.products.find({price:{$exists:true}}).count()
 db.products.find({price:{$exists:false}}).count()
 db.products.find({price:{$type:'number'}}).count()
+
+db.students.find({'experience.company':'Spotify'}) 
+db.sample4.find({'EXPENSE':{$elemMatch :{'WHAT': 'Beer',AMOUNT: 18.00}}})
